@@ -129,7 +129,7 @@
     .hero {
       position: relative;
       width: 100%;
-      background-color: #000;
+      background-color: #000; /* 웰컴 영상 글씨 가독성을 위해 검은 배경 유지 */
     }
 
     .main-video {
@@ -151,30 +151,18 @@
     /* 두 번째 영상 */
     .wedding-video {
       width: 100%;
-      max-width: 900px; /* 좀 더 시원하게 확장 */
+      max-width: 800px;
       height: auto;
       display: block;
       margin: 0 auto;
     }
 
-    /* 💡 사진 가로 비율을 더 넉넉하게 채우는 상자 */
-    .img-group {
-      display: flex;            
-      justify-content: center;  
-      gap: 8px;                /* 사진 간격을 아주 조금 줄여서 사진 크기를 더 확보 */
-      max-width: 1200px;       /* PC에서 가로로 훨씬 더 넓게 퍼지도록 확장 */
-      margin: 40px auto;        
-      padding: 0 8px;          /* 모바일 좌우 여백을 줄여 가로 비율을 최대로 활용 */
-      box-sizing: border-box;
-      width: 100%;
-    }
-
-    /* 💡 가로로 꽉 차고 시원하게 보이도록 비율 조정 */
+    /* 이미지 스타일 */
     .wedding-img {
-      width: 32.5%;            /* 마진과 여백을 뺀 남은 공간을 거의 꽉 채우도록 수정 */
-      height: auto;             
-      object-fit: cover;        
-      border-radius: 6px;       
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
     }
 
     /* ------------------------------------------- */
@@ -187,7 +175,7 @@
 
       h1 {
         font-size: 36px;
-        margin: 40px 0;
+        margin: 30px 0;
       }
 
       h2 {
@@ -197,10 +185,13 @@
       p {
         font-size: 20px;
       }
+
+      .wedding-img {
+        max-width: 600px !important;
+      }
       
-      .img-group {
-        gap: 15px;             /* PC에서는 화면이 넓으므로 간격도 넉넉하게 조정 */
-        padding: 0 30px;
+      .wedding-img.band {
+        max-width: 400px !important;
       }
     }
   </style>
@@ -223,7 +214,7 @@
       </div>
     </div>
 
-    <!-- 두 번째 영상 영역 -->
+    <!-- 💡 수정된 부분: 두 번째 영상 영역 (검은 배경 제거, 여백만 유지) -->
     <div style="margin: 50px 0; padding: 20px 0;">
       <video class="wedding-video" autoplay loop muted playsinline>
         <source src="wedding.mp4" type="video/mp4">
@@ -237,11 +228,9 @@
     </div>
     
     <!-- 이미지 영역 -->
-    <div class="img-group">
-      <img src="cople.jpg" class="wedding-img">
-      <img src="family.jpg" class="wedding-img">
-      <img src="band.jpg" class="wedding-img">
-    </div>
+    <img src="cople.jpg" class="wedding-img">
+    <img src="family.jpg" class="wedding-img">
+    <img src="band.jpg" class="wedding-img band">
 
   </div> 
 
