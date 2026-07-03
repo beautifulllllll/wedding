@@ -129,7 +129,7 @@
     .hero {
       position: relative;
       width: 100%;
-      background-color: #000; /* 웰컴 영상 글씨 가독성을 위해 검은 배경 유지 */
+      background-color: #000;
     }
 
     .main-video {
@@ -148,21 +148,33 @@
       word-break: keep-all;
     }
 
-    /* 두 번째 영상 */
+    /* 두 번째 영상 스타일 */
     .wedding-video {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px; 
       height: auto;
       display: block;
       margin: 0 auto;
     }
 
-    /* 이미지 스타일 */
-    .wedding-img {
+    /* 사진 가로 비율을 더 넉넉하게 채우는 상자 */
+    .img-group {
+      display: flex;            
+      justify-content: center;  
+      gap: 8px;                
+      max-width: 1200px;       
+      margin: 40px auto;        
+      padding: 0 8px;          
+      box-sizing: border-box;
       width: 100%;
-      height: auto;
-      display: block;
-      margin: 20px auto;
+    }
+
+    /* 가로로 꽉 차고 시원하게 보이도록 비율 조정 */
+    .wedding-img {
+      width: 32.5%;            
+      height: auto;             
+      object-fit: cover;        
+      border-radius: 6px;       
     }
 
     /* ------------------------------------------- */
@@ -175,7 +187,7 @@
 
       h1 {
         font-size: 36px;
-        margin: 30px 0;
+        margin: 40px 0;
       }
 
       h2 {
@@ -185,13 +197,10 @@
       p {
         font-size: 20px;
       }
-
-      .wedding-img {
-        max-width: 600px !important;
-      }
       
-      .wedding-img.band {
-        max-width: 400px !important;
+      .img-group {
+        gap: 15px;             
+        padding: 0 30px;
       }
     }
   </style>
@@ -202,7 +211,8 @@
 
     <!-- 첫 번째 영상 영역 -->
     <div class="hero">
-      <video class="main-video" autoplay muted loop playsinline>
+      <!-- 속성을 태그 안에 명확히 명시하고 source 구조를 표준화했습니다 -->
+      <video class="main-video" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
         <source src="demarry.mp4" type="video/mp4">
       </video>
 
@@ -214,9 +224,9 @@
       </div>
     </div>
 
-    <!-- 💡 수정된 부분: 두 번째 영상 영역 (검은 배경 제거, 여백만 유지) -->
+    <!-- 두 번째 영상 영역 (불필요한 중복 요소 및 검은 박스 유발 코드 완벽 제거) -->
     <div style="margin: 50px 0; padding: 20px 0;">
-      <video class="wedding-video" autoplay loop muted playsinline>
+      <video class="wedding-video" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
         <source src="wedding.mp4" type="video/mp4">
       </video>
     </div>
@@ -227,10 +237,12 @@
       <h1>한 마음 한 뜻으로 살아가보려 합니다</h1>
     </div>
     
-    <!-- 이미지 영역 -->
-    <img src="cople.jpg" class="wedding-img">
-    <img src="family.jpg" class="wedding-img">
-    <img src="band.jpg" class="wedding-img band">
+    <!-- 이미지 영역 (가로 3장 넉넉한 비율) -->
+    <div class="img-group">
+      <img src="cople.jpg" class="wedding-img">
+      <img src="family.jpg" class="wedding-img">
+      <img src="band.jpg" class="wedding-img">
+    </div>
 
   </div> 
 
